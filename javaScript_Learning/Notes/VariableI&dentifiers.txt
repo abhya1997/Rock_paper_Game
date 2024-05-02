@@ -1,0 +1,3 @@
+align items is for vertical position
+justify content for horizontel position.
+its for flex proerty

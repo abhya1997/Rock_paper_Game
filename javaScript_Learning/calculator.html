@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        border: 2px solid black;
+    }
+</style>
+<body>
+    <div>
+    <table>
+     <tr><input id="res"></tr>
+     <tr><td><button id="one" value="1">1</button></td><td><button>2</button></td><td><button>3</button></td></tr><br>
+     <tr><td><button>4</button></td><td><button>5</button></td><td><button>6</button></td></tr><br>
+     <tr><td><button>7</button></td><td><button>8</button></td><td ><button >9</button></td></tr><br>
+
+     
+    </table>
+
+
+    </div>
+    <script>
+       var a=document.getElementById("one").value.addEventListener("onclick",num1());
+       function num1(){
+        document.getElementById("one").innerHTML=a;
+       }
+
+        document.getElementById("res")=y;
+    </script>
+</body>
+</html>

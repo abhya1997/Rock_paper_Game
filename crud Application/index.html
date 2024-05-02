@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Employee crud Operation</h1>
+
+    <form method="post" action="#">
+    <label>Employee id</label><br>
+    <input type="number" id="empid"><br>
+    <label>Employee Name</label><br>
+    <input type="text" id="empname"><br>
+    <label>Salary</label><br>
+    <input type="number" id="empsalary"><br>
+    <button type="button" onclick="">submit</button><br>
+    </form>
+
+    <script>
+
+
+//let fetchRes = fetch(
+//"http://localhost:8080/employee");
+    
+// FetchRes is the promise to resolve
+// it by using.then() method
+//fetchRes.then(res =>
+  //  res.json()).then(d => {
+    //    console.log(d)
+    //})
+
+// Define the employee data
+const employeeData = {
+    
+        "empid": 5,
+        "empname": "Monali",
+        "salary": 2345.0
+    
+};
+
+// Define the URL of your backend endpoint
+const backendURL = "http://localhost:8080/employ";
+
+// Define the options for the Fetch request
+const requestOptions = {
+  method: "POST", // Specify the HTTP method
+  headers: {
+    "Content-Type": "application/json" // Specify content type as JSON
+  },
+  body: JSON.stringify(employeeData) // Convert employeeData to JSON string
+};
+
+// Send the Fetch request
+fetch("http://localhost:8080/employ", requestOptions)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json(); // Parse the JSON response
+  })
+  .then(data => {
+    console.log("Employee data sent successfully:", data);
+    // Do something with the response data if needed
+  })
+  .catch(error => {
+    console.error("There was a problem sending employee data:", error);
+    // Handle any errors that occurred during the Fetch request
+  });
+
+
+
+    </script>
+</body>
+</html>

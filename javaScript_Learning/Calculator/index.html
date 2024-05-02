@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #outside_container{
+        width: 30%;
+        margin: auto;
+        border: 2px solid black;
+        height: 300px;
+    }
+    #display{
+        width: 95%;
+        margin: 5px 5px 5px 5px;
+        margin-right: 15px;
+        padding: 10px;
+    }
+    .btn{
+        display: inline-block;
+        padding: 5px;
+
+    }
+    
+</style>
+<body>
+    <h1>Calculator</h1>
+    <div id="outside_container">
+     <div><input id="display"></div>
+     <div id="inputbtn">
+      <div><button class="btn" id="one" value="1">1</button></div>
+      <div><button class="btn" id="two" value="2">2</button></div>
+      <div><button class="btn" id="three" value="3">3</button></div>
+      <div><button class="btn" id="four" value="4">4</button></div>
+      <div><button class="btn" id="five " value="5">5</button></div>
+      <div><button class="btn" id="six" value="6">6</button></div>
+      <div><button class="btn" id="seven" value="7">7 </button></div>
+      <div><button class="btn" id="eight" value="8">8</button></div>
+      <div><button class="btn" id="nine" value="9">9</button></div>
+      <div><button class="optbtn" id="add">+</button></div>
+      <div><button class="optbtn" id="sub">-</button></div>
+      <div></div>
+      <div></div>
+      <div><button class="optbtn" id="equal">=</button></div>
+
+
+
+
+     </div>
+
+ 
+
+
+    </div>
+    <script>
+        let a=document.querySelectorAll(".btn");
+        let str=document.getElementById("display").innerText;
+
+        a.forEach((input)=>{
+            input.addEventListener("click",()=>{
+                let b=input.getAttribute("id");
+                let c=document.getElementById(b).value;
+                console.log(c);
+                document.getElementById("display").value+=str+c;
+            })
+        });
+
+        let op=document.querySelectorAll(".optbtn");
+        console.log(op);
+        op.forEach((input1)=>{
+            input1.addEventListener("click",()=>{
+                let a=input1.getAttribute("id");
+                console.log(a);
+                if(a=="add"){
+                    
+                  d=  document.getElementById("display");
+                  document.getElementById("display").value=str+"+";
+                  console.log(d);
+                    console.log(a);
+                    console.log("Hey we are checking");
+                }
+            })
+
+        })
+
+
+    </script>
+    
+</body>
+</html>

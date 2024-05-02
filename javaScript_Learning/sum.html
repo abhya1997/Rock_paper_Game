@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>First Number</label><br><br>
+    <input id="num1"><br><br>
+    <label>second Number</label><br><br>
+    <input id="num2"><br><br>
+     <button type="submit" onclick="sum()">submit</button>
+     <label>Result</label><br><br>
+     <input id="result">
+     <script>
+ 
+        function sum(){
+           var a,b,c;
+           a=Number(document.getElementById("num1").value);
+           b=Number(document.getElementById("num2").value);
+           c=a+b;
+           document.getElementById("result").value= c;
+        }
+       
+       
+       </script>
+</body>
+
+</html>

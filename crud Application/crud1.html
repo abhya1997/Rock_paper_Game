@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container mt-5">
+    <h1 class="mb-4">Employee Management</h1>
+
+    <div class="card">
+      <div class="card-header">
+        <h2 class="mb-0">Create Employee</h2>
+      </div>
+      <div class="card-body">
+        <form id="createEmployeeForm">
+          <div class="form-group">
+            <label for="createId">Employee ID:</label>
+            <input type="text" class="form-control" id="createId" required>
+          </div>
+          <div class="form-group">
+            <label for="createName">Name:</label>
+            <input type="text" class="form-control" id="createName" required>
+          </div>
+          <div class="form-group">
+            <label for="createSalary">Salary:</label>
+            <input type="text" class="form-control" id="createSalary" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Create</button>
+          <button type="reset" class="btn btn-primary">Reset</button>
+
+
+        </form>
+      </div>
+    </div>
+
+    <div class="card mt-4">
+      <div class="card-header">
+        <h2 class="mb-0">Employee Information</h2>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Employee ID</th>
+              <th>Name</th>
+              <th>Salary</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="employeeBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and Fetch API Polyfill for older browsers -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    const backendURL = "http://localhost:8080/employe";
+
+    // Function to fetch employee data and populate the table
+    function fetchEmployeeData() {
+      fetch("http://localhost:8080/employee"
+)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json(); // Parse the JSON response
+        })
+        .then(data => {
+          const employeeTableBody = document.getElementById("employeeBody");
+          employeeTableBody.innerHTML = ''; // Clear existing data
+          data.forEach(employee => {
+            const row = document.createElement("tr");
+            row.innerHTML = `<td>${employee.empid}</td><td>${employee.empname}</td><td>${employee.salary}</td><td><button onclick="editEmployee(${employee.empid},'${employee.empname}','${employee.salary}')" class="btn btn-primary btn-sm">Edit</button><button onclick="deleteEmployee(${employee.empid})" class="btn btn-danger btn-sm ml-2">Delete</button></td>`;
+            employeeTableBody.appendChild(row);
+          });
+        })
+        .catch(error => {
+          console.error("There was a problem fetching employee information:", error);
+          alert("Failed to fetch employee information. Please try again later.");
+        });
+    }
+
+    // Function to create new employee
+    document.getElementById("createEmployeeForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      const createId = document.getElementById("createId").value;
+      const createName = document.getElementById("createName").value;
+      const createSalary = document.getElementById("createSalary").value;
+
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          empid: createId,
+          empname: createName,
+          salary: createSalary
+        })
+      };
+
+      fetch("http://localhost:8080/employ", requestOptions)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log("Employee created successfully:", data);
+          alert("Employee created successfully!");
+          fetchEmployeeData(); // Refresh employee data after creation
+        })
+        .catch(error => {
+          console.error("There was a problem creating employee:", error);
+          alert("Failed to create employee. Please try again later.");
+        });
+    });
+
+    // Function to delete employee
+    function deleteEmployee(empId) {
+      if (confirm("Are you sure you want to delete this employee?")) {
+        const deleteURL = `${"http://localhost:8080/employdelete"}/${empId}`;
+        const requestOptions = {
+          method: "DELETE"
+        };
+
+        fetch(deleteURL, requestOptions)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log("Employee deleted successfully:", data);
+            alert("Employee deleted successfully!");
+             // Refresh employee data after deletion
+          })
+          .catch(error => {
+            console.error("There was a problem deleting employee:", error);
+            alert("Employee delete successfually.");
+            fetchEmployeeData();
+          });
+      }
+    }
+
+    // Function to edit employee
+    function editEmployee(empId, empName, empSalary) {
+        const newEmpId = prompt("Enter a Empid:", empId);
+      const newEmpName = prompt("Enter new name:", empName);
+      const newEmpSalary = prompt("Enter new salary:", empSalary);
+      
+      if (newEmpName !== null && newEmpSalary !== null) {
+        const editURL = `${"http://localhost:8080/employee"}/${empId}`;
+        const requestOptions = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            empId:newEmpId,
+            empname: newEmpName,
+            salary: newEmpSalary
+          })
+        };
+
+        fetch(editURL, requestOptions)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log("Employee updated successfully:", data);
+            alert("Employee updated successfully!");
+            fetchEmployeeData(); // Refresh employee data after update
+          })
+          .catch(error => {
+            console.error("There was a problem updating employee:", error);
+            alert("Failed to update employee. Please try again later.");
+          });
+      }
+    }
+
+    // Initial fetch to load employee data
+    fetchEmployeeData();
+  </script>
+
+</body>
+</html>

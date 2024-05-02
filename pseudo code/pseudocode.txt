@@ -1,0 +1,42 @@
+START
+
+Prompt user to enter the radius of the circle
+Read radius from user input
+
+ pie value = 3.14159
+
+Calculate area of the circle:
+area = PI * radius^2
+
+Calculate circumference of the circle:
+circumference = 2 * PI * radius
+
+Display the calculated area 
+
+
+END
+
+
+Algorithm
+Algorithm: CalculateAreaOfCircle
+
+Inputs: 
+  radius (number) - The radius of the circle
+
+Outputs:
+  area (number) - The calculated area of the circle
+
+Step 1: Start
+
+Step 2: Read the value of radius from user
+
+Step 3: Check if the radius is less than or equal to 0
+        If true, display an error message "Invalid radius. Please enter a positive value."
+        If false, continue to the next step
+
+Step 4: Calculate the area of the circle using the formula:
+        area = π * radius^2
+
+Step 5: Display the calculated area of the circle
+
+Step 6: End

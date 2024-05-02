@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Information</title>
+</head>
+<body>
+
+  <h1>Employee Information</h1>
+
+  <div id="employeeInfo"></div>
+
+  <script>
+    // Define the URL of your backend endpoint
+    const backendURL = "http://localhost:8080/employee";
+
+    // Send the Fetch request to get employee information
+    fetch(backendURL)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json(); // Parse the JSON response
+      })
+      .then(data => {
+        // Process the data and display it
+        const employeeInfoDiv = document.getElementById("employeeInfo");
+        data.forEach(employee => {
+          const employeeElement = document.createElement("div");
+          employeeElement.innerHTML = `<strong>Name:</strong> ${employee.id}, <strong>Position:</strong> ${employee.name}, <strong>Department:</strong> ${employee.salary}`;
+          employeeInfoDiv.appendChild(employeeElement);
+        });
+      })
+      .catch(error => {
+        console.error("There was a problem fetching employee information:", error);
+        // Handle any errors that occurred during the Fetch request
+        const employeeInfoDiv = document.getElementById("employeeInfo");
+        employeeInfoDiv.textContent = "Failed to fetch employee information. Please try again later.";
+      });
+  </script>
+
+</body>
+</html>

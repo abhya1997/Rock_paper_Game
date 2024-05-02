@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+let arr=[85,45,36,76,98,47];
+let sum=0;
+console.log(arr.length)
+for(let i=0;i<arr.length;++i){
+   // console.log(sum);
+    //console.log(arr[i]);
+    sum=arr[i]+sum;
+    
+}
+let Avg=sum/6;
+console.log(sum);
+console.log("Average of Marks",Avg)
+
+let price=[300,568,100,346,457];
+let discount=0;
+for(let i=0;i<price.length;++i){
+discount=(price[i])/10;
+console.log(discount)
+price[i]=price[i]-discount;
+console.log("Discounted price will be",price[i]);
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  
+</style>
+<body>
+    <button id="btn1">add</button>
+    <button id="btn2">toggle</button>
+    <p onclick=""></p>
+    <script>
+  let a=document.querySelector("#btn1");
+  a.onclick= (e) =>{
+console.log("Abhi is here");
+document.querySelector("p").innerText="hey How you doing ?";
+console.log(e);
+console.log(e.target);
+//console.log(e.offsetx);
+console.log(e.type);
+console.log(e.x,e.y);
+
+  }
+  let b=document.getElementById("btn2");
+  let c=document.querySelector("body");
+  let mode="light";
+  b.onclick=()=>{
+if(mode==="light"){
+    c.style.backgroundColor="black";
+    mode="dark";
+}
+else{
+    c.style.backgroundColor="white";
+    mode="light";
+}
+  }
+
+    </script>
+</body>
+</html>

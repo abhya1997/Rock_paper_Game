@@ -1,0 +1,9 @@
+#block1{
+    border: 2px solid black;
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    background-color: blue;
+    visibility: visible;
+    
+}

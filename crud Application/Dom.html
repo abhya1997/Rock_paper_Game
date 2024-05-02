@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="one">
+        <p></p>
+    </div>
+    <button></button>
+    <div id="two">
+        <h1>Hello Abhi</h1>
+    </div>
+    <div id="four" class="box"></div>
+    <div id="five" class="box"></div>
+    <div id="six" class="box"></div>
+    <div class="container">
+        <textarea class="story"></textarea>
+        <button id="set-text" type="button">Set text content</button>
+        <button id="clear-text" type="button">Clear text content</button>
+      </div>
+      
+</body>
+<script>
+let a=document.getElementById("one").firstChild;//its will return text node
+console.log(a);
+let b=document.getElementById("one").firstElementChild;//its will return first elemental node means tag
+console.log(b);
+let c=document.getElementById("one").tagName;//its will return element associated with perticular element
+console.log(c);
+//document.getElementById("two").innerText+="i high Time ";
+//document.getElementById("four").innerText+="Its four s Div";
+//document.getElementById("five").innerText+="Its five s Div";
+
+//ocument.getElementById("six").innerText+="Its six s Div";
+
+let x=document.querySelectorAll(".box");
+//x[0].innerText="New Elements"
+console.log(x);
+alert(x[0]);
+//console.log(x[0]);
+let id=1;
+for(y of x){
+y.innerText=`Its elements ${id}`;
+++id;
+} 
+
+let p=Number(alert(prompt("Enter 1 st Number")));
+let q=Number(alert(prompt("Enter 2 nd number")));
+let z=p+q;
+//alert(z);
+console.log(typeof(p));
+console.log(typeof(q));
+console.log(typeof(z));
+
+console.log(p);
+console.log(q)
+console.log(z);
+let m=23;
+let n=234;
+console.log(m+n);
+const story = document.body.querySelector(".story");
+
+const setText = document.body.querySelector("#set-text");
+setText.addEventListener("click", () => {
+  story.textContent = "It was a dark and stormy night...";
+});
+
+const clearText = document.body.querySelector("#clear-text");
+clearText.addEventListener("click", () => {
+  story.textContent = "";
+});
+
+</script>
+</html>

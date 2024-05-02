@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<style>
+    #block1{
+    border: 2px solid black;
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    background-color: blue;
+    visibility: visible;
+    
+}
+</style>
+<body>
+    <a id="visibility" onclick="visible();" href="#">Click here to see visible effect</a>
+    <div id="block1">
+    block1
+
+    </div>
+    <script type="text/javascript">
+        
+        
+        
+        function visible(){    
+            var block1=document.getElementById("block1");
+
+            if(block1.style.visibility=="visible"){
+     document.getElementById("block1").style.visibility="hidden";
+
+            }
+            else{
+                document.getElementById("block1").style.visibility="visible";
+
+            }
+     
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+JavaScript is an interpreted programmimg Language.
+Javascript is high level language.
+JavaScript is object based langugae.
+JavaScript add funcions in website.
+Javascript is mostly used for validation.
+Javascript is case senstive.
+we can script tag in head or in body tag.
+For better perforamce we add in body coz first load
+all html contain then javascript is working
+

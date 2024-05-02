@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Number 1:</label> &nbsp;<input id="num1"><br>
+    <label>Number 2:</label> &nbsp;<input id="num2"><br>
+    <button type="submit" onclick="show()"> Submit</button>
+    <p id="ans"></p>
+
+</body>
+
+<script>
+    function show(){
+        let a=document.getElementById("num1").value;
+        let b=document.getElementById("num2").value;
+        if(a>b){
+            document.getElementById("ans").innerHTML="Number 1 is greater than Number 2"
+        }
+        else{
+            document.getElementById("ans").innerHTML="Number 2 is greater than Number 1"
+
+        }
+    }
+</script>
+</html>

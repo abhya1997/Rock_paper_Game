@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Username</label><br>
+<input id="username"><br>
+<label>password</label><br>
+<input id="password">
+<button onclick="show();">submit</button>
+
+
+    <script>
+        var a=1111;
+        var b=12.34;
+        var c="Abhi";
+        console.log(typeof(a));
+        console.log(typeof(b));
+        console.log(typeof(c));
+        if(typeof(a)===typeof(b)){
+            console.log("a is the number datatype")
+        }
+        else{
+            console.log("else block is working");
+        }
+        for(i=0;i<=10;++i){
+            console.log(i);
+        }
+        function add( a,b){
+            var sum=a+b;
+            return sum;
+
+        }
+
+       console.log( add(2,4));
+       function show(){
+       var username=document.getElementById("username").value;
+       var password=document.getElementById("password").value;
+       console.log(username);
+       console.log(password);
+       localStorage.setItem("username",username);
+       localStorage.setItem("password",password);
+       console.log(localStorage.getItem("username"));
+       console.log(localStorage.getItem("password"));
+
+       }
+       console.log(localStorage.getItem("username"));
+
+
+
+    </script>
+</body>
+</html>

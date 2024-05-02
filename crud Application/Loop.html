@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //for of loop
+        let a ="Abhijit"
+        let len=0;
+        for (let i of a){
+           console.log(i);
+           ++len;
+        }
+        console.log(len);
+
+        //for in loop 
+        //its used for objects and array to access value
+        let laptop={
+            Colour:"Black",
+            price:34456,
+            Ram:"4 Gb",
+            Rom:"521 Gb"
+
+        };
+        for(let key in laptop){
+console.log(key,":",laptop[key]);
+        }
+    </script>
+</body>
+</html>

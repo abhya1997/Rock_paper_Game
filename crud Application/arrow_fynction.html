@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+ const add=(x,y)=>{
+    return x +y;
+
+ };
+ 
+ const mul=(x,y)=>{
+ 
+    return x*y;
+ };
+ const div=(x,y)=>{
+return x/y;
+ };
+ const sub=(x,y)=>{
+    return x-y;
+ };
+
+ console.log("Addition of two Number :",add(3,5));
+ console.log("Mulitipliaction of two number is :",mul(4,5));
+ console.log("Division of Two Number is :",div(12,4));
+ console.log("Subtratction of Two Number is :",sub(2333,566));
+
+//Take a String as parameter and return vowels count;
+let count=0;
+function vowels_count(str){
+  //  str=str.tolo
+for(let j=0;j<str.length;++j){
+    console.log(str[j]);
+    if(str[j]==="a" || str[j]==="e" || str[j]==="i" || str[j]==="o" || str[j]==="u"){
+       // console.log("I amA ABhi")
+       count++;
+    }
+  
+
+}
+
+}
+
+let str="abcAi";
+str=str.toLocaleLowerCase();
+    vowels_count(str);
+    console.log(count);
+
+    const vowe_c=(str)=>{
+        for(let j=0;j<str.length;++j){
+    console.log(str[j]);
+    if(str[j]==="a" || str[j]==="e" || str[j]==="i" || str[j]==="o" || str[j]==="u"){
+       // console.log("I amA ABhi")
+       count++;
+    }
+  
+
+}
+console.log(count)
+    }
+    vowe_c("abhi")
+    </script>
+</body>
+</html>

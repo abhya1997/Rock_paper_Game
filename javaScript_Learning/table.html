@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        border: 2px solid black;
+        width: 50%;
+    }
+</style>
+<body>
+    <div>
+        <label>Name</label><br>
+        <input id="name"><br>
+      <label>last name</label>
+      <input id="lname"><br>
+      <label>Age</label><br>
+      <input id="age">
+    </div>
+    <table>
+        <tr><td id="on">name</td>
+            <td id="tw"> Last name</td>
+            <td id="thr">Age</td>
+      <tr><td id="one"></td>
+        <td id="two"></td>
+        <td id="three" ></td>
+    
+    </tr>
+    
+
+    </table>
+    <button id="add" onclick="add();">Add</button>
+    <script>
+        function add(){
+            var a=document.getElementById("name").value;
+            var b=document.getElementById("lname").value;
+
+            var c=document.getElementById("age").value;
+            console.log(c);
+            document.getElementById("one").innerHTML=a;
+            document.getElementById("two").innerHTML=b;
+            document.getElementById("three").innerHTML=c;
+
+        }
+    </script>
+</body>
+</html>

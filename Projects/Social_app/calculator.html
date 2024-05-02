@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+.container{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+}
+.display {
+  font-size: 2rem;
+  text-align: end; /* This is the Logical Property for text-align: right; and has very good browser support. */
+  background: hsl(202, 11%, 29%); /* background color */
+  color: hsl(255, 100%, 100%); /* text color */
+  padding-block-start: 0.25rem; /* Logical Property for padding-top */
+  padding-block-end: 0.25rem; /* Logical Property for padding-bottom */
+  padding-inline-end: 0.75rem; /* Logical Property for padding-right */
+}
+.buttons{
+width: inherit;
+
+}
+button{
+    padding: 20px;
+    margin: 5px;
+    
+
+}
+.buttons{
+  display: inline-block;
+  background-color: black;
+}
+button:hover{
+    background-color: chocolate;
+    scale: 1;
+    
+
+
+}
+
+</style>
+<body>
+    <div class="container">
+    <div><input class="display"></div>
+    <div class="buttons">
+     <button class="button">7</button>
+     <button class="button">8</button>
+     <button class="button">9</button>
+     <button class="button">+</button>
+
+    </div>
+    <div class="buttons">
+        <button class="button">6</button>
+        <button class="button">5</button>
+        <button class="button">4</button>
+        <button class="button">-</button>
+   
+       </div>
+       <div class="buttons">
+        <button class="button">3</button>
+        <button class="button">2</button>
+        <button class="button">1</button>
+        <button class="button">*</button>
+   
+       </div>
+       <div class="buttons">
+        <button class="button">c</button>
+        <button class="button">e</button>
+        <button class="button">=</button>
+        <button class="button">+</button>
+   
+       </div>
+    
+</div>
+<script>
+    let string="";
+    let buttons=document.querySelectorAll(".button");
+    buttons.forEach((input)=>{
+        
+            input.addEventListener("click",(e)=>{
+               
+                if(e.target.innerHTML=="="){
+                    string=eval(string);
+                    document.querySelector(".display").value=string;
+                    console.log(string);
+                }
+                else if(e.target.innerHTML=="c"){
+                    console.log(e.target.innerHTML);
+                
+                document.querySelector(".display").value="";
+                string="";
+                
+                }
+                else if(e.target.innerHTML=="e"){
+                   // console.log(e.target.innerHTML);
+                   console.log(string);
+                
+                //document.querySelector(".display").value="";
+                 string=string.slice(0,string.length-1);
+                 document.querySelector(".display").value=string;
+            
+                
+                
+                }
+                else{
+                 //   console.log(e.target.innerHTML);
+                
+                document.querySelector(".display").value+=e.target.innerHTML;
+                console.log(string);
+               string=string+e.target.innerHTML;
+               console.log(string);
+             //  console.log(e.target.innerHTML);
+                }
+
+            })
+        });
+
+    
+    
+</script>
+
+</body>
+</html>

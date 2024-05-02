@@ -1,0 +1,11 @@
+data types in java script
+1)undefind
+ex var a;
+console.log(a);
+ans undefind;
+if you are undefind any varriable specially value its 
+called undefind;
+2)null
+ex var a=null;
+In JavaScript, you can escape a string by using the \ (backslash) character. The backslash indicates that the next character should be treated as a literal character rather than as a special character or string delimiter.
+ex var a ="Abhi is \"developer\""

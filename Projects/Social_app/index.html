@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Application</title>
+</head>
+<style>
+    #submit{
+        align-items: center;
+        justify-content: center;
+    }
+    #left{
+ 
+    }
+    #right{
+
+    }
+    #container{
+        display: flex;
+        gap: 15px;
+    }
+</style>
+<body>
+    <h1>Social Media Application</h1>
+    <div id="container">
+     <div id="left">
+        <h2>Write a post here</h2>
+      <textarea id="post_c"></textarea><br>
+      <button id="submit" onclick="add();">submit</button>
+     </div>
+     <div id="right"></div>
+     <h2>Post</h2>
+<p id="post_containt"></p>
+
+    </div>
+<script>
+
+
+function add(){
+    let a=document.getElementById("post_c").value;
+    let b=document.createElement("p");
+    let c=document.getElementById("post_containt");
+    let d=document.getElementById("right");
+    c.appendChild(b);
+console.log(a);
+    document.querySelector("#post_containt").innerText=a;
+    console.log(a);
+}
+
+function createpost(){
+    d.innerHtml=`
+    <span><span>
+    `;
+
+}
+document.getElementById("myH").innerHTML = "My First Page";
+document.getElementById("myP").innerHTML = "My first paragraph.";
+
+</script>
+</body>
+</html>

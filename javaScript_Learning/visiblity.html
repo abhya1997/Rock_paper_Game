@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+#block1{
+height:50px; background: lightgreen;
+color:#fff;
+padding-top: 30px;
+visibility: visible;
+}
+
+</style>
+</head>
+<body>
+
+<a id="v1" href="#" onclick="toggleVisibility();">Click here </a>
+
+<br>
+<div id="block1"> </div>
+
+<script type="text/javascript">
+function toggleVisibility()
+{
+var block1 = document.getElementById('block1');
+console.log(block1)
+console.log(block1.style)
+
+if(block1.style.visibility == "hidden")
+{
+block1.style.visibility = "visible";
+}
+else
+{
+block1.style.visibility = "hidden";
+}
+}
+</script>
+</body>
+</html>
